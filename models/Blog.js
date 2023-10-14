@@ -12,7 +12,7 @@ import mongoose from "mongoose";
             required: [true, "Please insert a Description"]
         },
         img: {
-            type: [Object],
+            type: Object,
             required: true
         },
         list: {

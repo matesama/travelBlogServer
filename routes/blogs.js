@@ -1,6 +1,7 @@
 import express from "express";
 import Blog from "../models/Blog.js";
 
+
 const blogsRouter = express.Router();
 
 
@@ -36,6 +37,19 @@ blogsRouter.post("/", async (req, res)=> {
     res.status(500).json(err);
 }
 })
+
+blogsRouter.delete('/:id', async (req, res) => {
+    try{
+        const {id} = req.params;
+        const result = await Blog.findByIdAndDelete(id)
+        if(!result) {
+            res.status(404).json({error: "not found"})
+        }
+        res.status(202).json(response)
+    } catch(err) {
+        res.status(500).json(err);
+    }
+}) 
 
 export default blogsRouter;
 
