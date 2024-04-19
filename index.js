@@ -16,8 +16,7 @@ app.use('/api/blogs', blogsRouter);
 app.use('/api/', authRouter);
 
 
-
-const port = process.env.Port || 3000;
+const port = process.env.PORT || 3000;
 client.on('connected', () => {
     app.listen(port, () => {
         console.log(`Server listening on port ${port}`)
